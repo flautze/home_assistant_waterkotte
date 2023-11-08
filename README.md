@@ -14,12 +14,13 @@ This is how the Card looks like:
 
 ![image](https://github.com/flautze/home_assistant_waterkotte/assets/6823055/ec1dff76-dbaf-4a73-a44a-096327783189)
 
-Functions:
+Functions/features:
 - Clicking on the house (top left) -> navigation to a different page/dashboard
 - Clicking on the water / heating / cooling icon or temperature -> navigate to a different page/dashboard
 - Color of water / heating / cooling changes according to state of the respective enabled and status entities ( running = accent-color, "auto" but not running = primary color, disabled = lightgrey )
 - clicking on pump-percentage -> Navigation
-- All the values update according to the sensors
+- Pump-symbols change color according to state (on = accent-color)
+- All the values update according to the sensors and correspond to the layout from the heatpump display
 - different graphics (and icon/text-color) for dark/light theme
 
 # How to use
