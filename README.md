@@ -8,7 +8,8 @@ A1 Geo EcoTouch, no additional buffer or functions - apart from SG ready. SG rea
 These are the 2 Display screens that shall be condensed into 1 card.
 ![image](https://github.com/flautze/home_assistant_waterkotte/assets/6823055/677784bb-1d8d-43bc-88cb-001308e8c8ee)
 
-![image](https://github.com/flautze/home_assistant_waterkotte/assets/6823055/66fb6757-396c-4110-bb05-747a698e43c8)
+
+![image](https://github.com/flautze/home_assistant_waterkotte/assets/6823055/0af1c1e3-40aa-476c-b940-cc4a7f652b3e)
 
 
 This is how the Card looks like:
