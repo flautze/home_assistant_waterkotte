@@ -1,0 +1,363 @@
+type: picture-elements
+elements:
+  - type: state-label
+    entity: sensor.wkh_percent_compressor
+    title: Leistung Kompressor
+    style:
+      top: 30%
+      left: 63%
+      font-size: 12px
+      color: grey
+  # replace the following entity with the entity that measures power consumption of the heatpump
+  - type: state-label
+    entity: sensor.heatpump_power 
+    title: Stromverbrauch
+    style:
+      top: 20%
+      left: 60%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: Temperatur Kondensation
+    entity: sensor.wkh_temperature_condensation
+    style:
+      top: 55%
+      left: 62%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: Druck Kondensation
+    entity: sensor.wkh_pressure_condensation
+    style:
+      top: 62%
+      left: 62%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: Temperatur Verdampfung
+    entity: sensor.wkh_temperature_evaporation
+    style:
+      top: 55%
+      left: 38%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: Druck Verdampfung
+    entity: sensor.wkh_pressure_evaporation
+    style:
+      top: 62%
+      left: 38%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    entity: sensor.wkh_temperature_source_entry
+    title: T Quelleneingang
+    style:
+      top: 45%
+      left: 13%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: T Quellenausgang
+    entity: sensor.wkh_temperature_source_exit
+    style:
+      top: 89%
+      left: 13%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: T Vorlauf
+    entity: sensor.wkh_temperature_flow
+    style:
+      top: 45%
+      left: 87%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    name: T Rücklauf
+    entity: sensor.wkh_temperature_return
+    style:
+      top: 89%
+      left: 87%
+      font-size: 12px
+      color: grey
+  # Sprezung is calculated -> see sensors in separate file
+  - type: state-label
+    title: Spreizung Quelle
+    entity: sensor.spreizung_quelle
+    style:
+      top: 70%
+      left: 12%
+      font-size: 12px
+      color: grey
+   # Sprezung is calculated -> see sensors in separate file
+  - type: state-label
+    title: Spreizung Heizkreis
+    entity: sensor.spreizung_heizkreis
+    style:
+      top: 70%
+      left: 87%
+      font-size: 12px
+      color: grey
+   # Percent is calculated -> see sensors in separate file
+  - type: state-label
+    title: Stellung Expansionsventil (30-70)
+    entity: sensor.percent_expansion_valve
+    style:
+      top: 90%
+      left: 40%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: Drehzahl Quellenpumpe
+    entity: sensor.wkh_percent_source_pump
+    style:
+      top: 35%
+      left: 4%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: Drehzahl Heizkreispumpe
+    entity: sensor.wkh_percent_heat_circ_pump
+    style:
+      top: 35%
+      left: 97%
+      font-size: 12px
+      color: grey
+  - type: state-icon
+    title: Status Warmwasser
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/warmwasser  # Create an additional dashboard and use the navigation path here
+    entity: binary_sensor.wkh_state_water
+    style:
+      top: 7%
+      left: 34%
+      font-size: 12px
+      color: grey
+    card_mod:
+      style: |
+        :host {
+          --paper-item-icon-color:
+          {% if is_state("select.wkh_enable_warmwater","off") %}
+          lightgrey
+          {% else %}
+            {% if is_state("binary_sensor.wkh_status_water","on") %}
+              var(--accent-color)
+            {% else %}
+              var(--primary-color)
+            {% endif %}
+          {% endif %}  
+  - type: state-label
+    title: T Wasser Sollwert
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/warmwasser  # Create an additional dashboard and use the navigation path here
+    entity: sensor.wkh_temperature_water_demand
+    style:
+      top: 5%
+      left: 25%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: T Wasser
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/warmwasser  # Create an additional dashboard and use the navigation path here
+    entity: sensor.wkh_temperature_water
+    style:
+      top: 10%
+      left: 25%
+      font-size: 12px
+      color: green
+  - type: state-icon
+    title: Status Heizbetrieb
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/heizen  # Create an additional dashboard and use the navigation path here
+    entity: binary_sensor.wkh_status_heating
+    style:
+      top: 7%
+      left: 54%
+      font-size: 12px
+      color: grey
+    card_mod:
+      style: |
+        :host {
+          --paper-item-icon-color:
+          {% if is_state("select.wkh_enable_heating","off") %}
+          lightgrey
+          {% else %}
+            {% if is_state("binary_sensor.wkh_status_heating","on") %}
+              var(--accent-color)
+            {% else %}
+              var(--primary-color)
+            {% endif %}
+          {% endif %}
+  - type: state-label
+    title: T Heiz Sollwert
+    entity: sensor.wkh_temperature_heating_demand
+    style:
+      top: 5%
+      left: 45%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: T Heiz
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/heizen  # Create an additional dashboard and use the navigation path here
+    entity: sensor.wkh_temperature_heating
+    style:
+      top: 10%
+      left: 45%
+      font-size: 12px
+      color: green
+  - type: state-icon
+    title: Status Kühlbetrieb
+    entity: binary_sensor.wkh_state_cooling
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/kuhlen  # Create an additional dashboard and use the navigation path here
+    style:
+      top: 7%
+      left: 74%
+      font-size: 12px
+      color: grey
+    card_mod:
+      style: |
+        :host {
+          --paper-item-icon-color:
+          {% if is_state("select.wkh_enable_cooling","off") %}
+          lightgrey
+          {% else %}
+            {% if is_state("binary_sensor.wkh_state_cooling","on") %}
+              var(--accent-color)
+              {% else %}
+              var(--primary-color)
+            {% endif %}
+          {% endif %}  
+  - type: state-label
+    title: T Kühlung Sollwert
+    entity: sensor.wkh_temperature_cooling_demand
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/kuhlen  # Create an additional dashboard and use the navigation path here
+    style:
+      top: 5%
+      left: 65%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: T Kühlung
+    entity: sensor.wkh_temperature_cooling
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/kuhlen  # Create an additional dashboard and use the navigation path here
+    style:
+      top: 10%
+      left: 65%
+      font-size: 12px
+      color: green
+  # Use a sensor that is triggering the PV/SG-REady, or delete
+  - type: state-icon
+    title: SG-Ready
+    entity: switch.shellyplus1_441793cd71c8_switch_0
+    icon: mdi:solar-power-variant
+    style:
+      top: 10%
+      left: 95%
+      font-size: 12px
+      color: grey
+  - type: state-label
+    title: T Sauggas
+    entity: sensor.wkh_temperature_suction_line
+    style:
+      top: 30%
+      left: 34%
+      font-size: 12px
+      color: grey
+  - type: state-icon
+    title: Status Quellenpumpe
+    entity: binary_sensor.wkh_state_sourcepump
+    icon: mdi:chevron-down-circle-outline
+    style:
+      top: 42%
+      left: 3%
+      font-size: 12px
+      color: grey
+  - type: state-icon
+    title: Status Heizkreispumpe
+    entity: binary_sensor.wkh_state_heatingpump
+    icon: mdi:chevron-down-circle-outline
+    style:
+      top: 42%
+      left: 97%
+      font-size: 12px
+      color: grey
+  - type: icon
+    title: Details
+    icon: mdi:home
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/heatpump-details  # Create an additional dashboard and use the navigation path here
+    style:
+      top: 5%
+      left: 5%
+  - type: icon
+    title: Stromverbrauch
+    icon: mdi:transmission-tower
+    style:
+      font-size: 20px
+      top: 20%
+      left: 50%
+  - type: icon
+    title: Verdichter
+    icon: mdi:car-brake-low-pressure
+    style:
+      font-size: 20px
+      top: 35%
+      left: 50%
+  - type: icon
+    title: Entspannungsventil
+    icon: mdi:car-brake-worn-linings
+    style:
+      font-size: 20px
+      top: 83%
+      left: 50%
+  - type: icon
+    title: Tiefenbohrung
+    tap_action:
+      action: navigate
+      navigation_path: dashboard-solar/solekreis  # Create an additional dashboard and use the navigation path here
+    icon: mdi:heating-coil
+    style:
+      font-size: 20px
+      top: 60%
+      left: 12%
+  - type: icon
+    title: Verdampfer
+    icon: mdi:blur-radial
+    style:
+      font-size: 20px
+      top: 58.5%
+      left: 25%
+  - type: icon
+    title: Verflüssiger
+    icon: mdi:weather-rainy
+    style:
+      font-size: 20px
+      top: 58.5%
+      left: 74.5%
+  - type: icon
+    title: Heizwärme
+    tap_action:
+      action: navigate
+      navigation_path: /dashboard-solar/heizkreis  # Create an additional dashboard and use the navigation path here
+    icon: mdi:radiator
+    style:
+      font-size: 20px
+      top: 60%
+      left: 88%
+image: /local/WP_WHITE.png
+dark_mode_image: /local/WP_BLACK.png
