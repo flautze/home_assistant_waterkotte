@@ -38,8 +38,8 @@ Copy code from waterkotte.yml and paste.
 # Changes required
 1. Additional entities
 There are several entities that are not originating from the Waterkotte integration. These are marked with comments in the waterkotte.yml
-- heatpump_power
-- SG-ready
+- heatpump_power (center - displaying power consumption of heatpump)
+- SG-ready (top right corner)
 
 2. Navigation paths
 Navigation paths need to be adjusted according to the dashboard layout, I have not included any sub-pages as these are very basic.
