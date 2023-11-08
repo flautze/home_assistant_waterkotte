@@ -1,6 +1,15 @@
 # Waterkotte Display using the pictures entity card
-This Repository was created to share the setup of the pictures entity card to emulate/imitate the Waterkotte heatpump display overview.
-All the sensors used are coming from the Waterkotte Integration: 
+This Repository was created to share the setup of the pictures entity card to emulate/imitate the Waterkotte heatpump display overview in Home Assistant.
+All but 2 sensors in use are originating from the below linked Waterkotte Integration.
+My heatpump setup is pretty simple:
+A1 Geo EcoTouch, no additional buffer or functions - apart from SG ready. SG ready was realized with a Shelly Plus 1 which I directly connected via 230V inside the Heatpump and connected to SG-ready input.
+
+
+These are the 2 Display screens that shall be condensed into 1 card.
+
+This is how the Card looks like
+![image](https://github.com/flautze/home_assistant_waterkotte/assets/6823055/ec1dff76-dbaf-4a73-a44a-096327783189)
+
 
 # How to use
 Install the following integration via HACS
