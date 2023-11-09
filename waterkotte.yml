@@ -1,3 +1,6 @@
+# Paste this in the card editor for your dashboard when creating a new card in YAML-Mode
+# Configuration/Adjustment
+# style: -> defines the position of the label/icon/ from top / left. Font size and color
 type: picture-elements
 elements:
   - type: state-label
