@@ -1,0 +1,23 @@
+template:
+  sensor:
+    - name: percent_expansion_valve
+      unique_id: percent_expansion_valve
+      state: "{{ states('sensor.wkh_position_expansion_valve') }}"
+
+    - name: spreizung_quelle
+      unique_id: spreizung_quelle
+      unit_of_measurement: "K"
+      device_class: temperature
+      state: >
+        {{ states('sensor.wkh_temperature_source_entry')|float(0) - 
+        states('sensor.wkh_temperature_source_exit')|float(0) 
+        }}
+
+    - name: spreizung_heizkreis
+      unique_id: spreizung_heizkreis
+      unit_of_measurement: "K"
+      device_class: temperature
+      state: >
+        {{ states('sensor.wkh_temperature_flow')|float(0) - 
+        states('sensor.wkh_temperature_return')|float(0) 
+        }}
