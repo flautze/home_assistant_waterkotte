@@ -1,3 +1,4 @@
+# Add this section to your configuration.yaml - if there is no include for a separate templates-file. If there is already a templates and sensors-section, do not copy the first 2 lines.
 template:
   sensor:
     - name: percent_expansion_valve
