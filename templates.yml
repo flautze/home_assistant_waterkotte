@@ -1,4 +1,5 @@
-
+# if configuration.yaml contains a template section with !include, paste this to the templates.yaml (or the include-file respectively).
+# the tag -sensor: must only be used once in that file, so this has to be left out - if already in that file.
 - sensor:
   - name: percent_expansion_valve
     unique_id: percent_expansion_valve
